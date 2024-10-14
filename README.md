@@ -1,6 +1,6 @@
 # Sorting Visualiser
 
-Sorting Visualization project demonstrates how various sorting algorithms work by displaying animated bars.
+Sorting Visualiser demonstrates how various sorting algorithms work by displaying animated bars.
 
 ## Features
 - **Generate New Array**: Create a new array with random values.
