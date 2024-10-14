@@ -1,7 +1,7 @@
 // Global Variables and DOM Elements
 const arrayContainer = document.getElementById('array-container');
 const sortingSpeedLabel = document.getElementById('sorting-speed-label');
-const sortButton = document.querySelector('button[onclick="sortArray()"]'); // Select the sort button
+const sortButton = document.querySelector('button[onclick="sortArray()"]');
 
 let array = [];
 let sorting = false;
@@ -42,7 +42,7 @@ function updateArraySize(size) {
 // Update the sorting speed when the slider is changed
 function updateSortingSpeed(speed) {
     // Map the speed (1-10) to a delay value between 200ms and 100ms
-    delay = 200 - (speed * 10);  // At speed 1, delay = 200ms, at speed 10, delay = 100ms
+    delay = 200 - (speed * 10);  // At speed 1, delay = 200ms, at speed 9, delay = 110ms
     sortingSpeedLabel.textContent = speed;
 }
 
@@ -52,7 +52,7 @@ function updateSortingSpeed(speed) {
 
 // General function to perform sorting based on the selected algorithm
 async function sortArray() {
-    sortButton.disabled = true; // Disable the sort button while sorting
+    sortButton.disabled = true;
     const selectedAlgorithm = document.getElementById('sorting-algorithms').value;
     sorting = true;
 
@@ -85,15 +85,15 @@ async function sortArray() {
             break;
     }
 
-    sorting = false; // Reset flag after sorting is done
-    sortButton.disabled = false; // Re-enable the sort button
+    sorting = false;
+    sortButton.disabled = false;
 }
 
 // Bubble Sort Algorithm
 async function bubbleSort() {
     for (let i = 0; i < array.length - 1; i++) {
         for (let j = 0; j < array.length - i - 1; j++) {
-            if (!sorting) return;  // Stop sorting if canceled
+            if (!sorting) return;
 
             highlightBars(j, j + 1);
             if (array[j] > array[j + 1]) {
@@ -320,7 +320,7 @@ async function swap(i, j) {
     bars[i].style.transform = 'scale(1.1)';
     bars[j].style.transform = 'scale(1.1)';
 
-    bars[i].style.backgroundColor = '#e74c3c'; // Red for swap indication
+    bars[i].style.backgroundColor = '#e74c3c';
     bars[j].style.backgroundColor = '#e74c3c';
 
     await new Promise(resolve => setTimeout(resolve, delay));
